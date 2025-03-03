@@ -7,7 +7,6 @@ This project is a front-end React application built to meet the specifications o
 - **Dashboard** with navigation items (Home, Profile, Settings)
 - **API Integration** with public data fetching (https://jsonplaceholder.typicode.com/todos)
 - **Responsive Design** for various screen sizes
-- **Route Guard** to protect the dashboard from unauthenticated users
 
 ## Technology Stack:
 - **React**: A JavaScript library for building user interfaces.
