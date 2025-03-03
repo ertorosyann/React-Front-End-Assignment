@@ -1,54 +1,24 @@
-# React + TypeScript + Vite
+# React Front-End Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a front-end React application built to meet the specifications of the React front-end task. The goal of this task is to implement a simple login and registration system with authentication, a dashboard with navigation, and data fetching from a public API. The app was developed using **React**, **Tailwind CSS**, and **TypeScript**.
 
-Currently, two official plugins are available:
+## Key Features:
+- **Authentication** (Login & Registration)
+- **Dashboard** with navigation items (Home, Profile, Settings)
+- **API Integration** with public data fetching (https://jsonplaceholder.typicode.com/todos)
+- **Responsive Design** for various screen sizes
+- **Route Guard** to protect the dashboard from unauthenticated users
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technology Stack:
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A statically typed superset of JavaScript.
+- **Tailwind CSS**: A utility-first CSS framework for building custom designs.
+- **React Router**: For routing and navigation between different pages in the app.
+- **localStorage**: For storing authentication tokens.
 
-## Expanding the ESLint configuration
+## Installation:
+To set up the project locally, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/ertorosyann/React-Front-End-Assignment.git
