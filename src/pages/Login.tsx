@@ -1,7 +1,10 @@
+import { useAuth } from "../../context/AuthContext";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const Login: React.FC = () => {
+  const {login} = useAuth();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -18,14 +21,10 @@ const Login: React.FC = () => {
       );
 
       if (!findUser) {
-        setEmail("");
-        setPassword("");
         setErrorMessage("The password or email you’ve entered is incorrect.");
         return;
       }
-      const fakeToken = "faceToken1234";
-      localStorage.setItem("authToken", fakeToken);
-      window.location.href = "/home";
+      login();
     }
   };
 

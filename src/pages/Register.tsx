@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Registration: React.FC = () => {
+  const { clear } = useAuth();
+
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [successMessage, setSuccessMessage] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,8 +36,7 @@ const Registration: React.FC = () => {
     usersList.push(newUser);
 
     localStorage.setItem("users", JSON.stringify(usersList));
-    setSuccessMessage("Registration successful!");
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   return (
@@ -45,14 +47,9 @@ const Registration: React.FC = () => {
             Create an Account
           </h2>
         </header>
-  
-        {errorMessage && (
-          <p className="text-red-500 text-sm">{errorMessage}</p>
-        )}
-        {successMessage && (
-          <p className="text-green-500 text-sm">{successMessage}</p>
-        )}
-  
+
+        {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
+
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <fieldset>
             <label
@@ -70,7 +67,7 @@ const Registration: React.FC = () => {
               placeholder="Enter your email"
             />
           </fieldset>
-  
+
           <fieldset>
             <label
               htmlFor="password"
@@ -87,7 +84,7 @@ const Registration: React.FC = () => {
               placeholder="Enter your password"
             />
           </fieldset>
-  
+
           <fieldset>
             <label
               htmlFor="confirmPassword"
@@ -104,7 +101,7 @@ const Registration: React.FC = () => {
               placeholder="Confirm your password"
             />
           </fieldset>
-  
+
           <button
             type="submit"
             className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
@@ -112,7 +109,7 @@ const Registration: React.FC = () => {
             Register
           </button>
         </form>
-  
+
         <footer className="text-center">
           <p className="text-sm text-gray-600">
             Already have an account?{" "}
@@ -120,11 +117,16 @@ const Registration: React.FC = () => {
               Login here
             </Link>
           </p>
+          <p
+            className="cursor-pointer text-red-500  hover:underline"
+            onClick={clear}
+          >
+            Clear Local Storage
+          </p>
         </footer>
       </article>
     </section>
   );
-  
 };
 
 export default Registration;

@@ -1,13 +1,15 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { JSX } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
-const CheckToken: React.FC = () => {
-  const authToken = localStorage.getItem("authToken");
+export const CheckToken = ({ element }: { element: JSX.Element }) => {
+  const { isAuthentificated } = useAuth();
 
-  if (!authToken) {
+
+  if (!isAuthentificated) {
     return <Navigate to="/login" replace />;
   }
 
-  return <Outlet />;
+  return element;
 };
 
-export default CheckToken;
