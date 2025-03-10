@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import "./App.css";
 import Layout from "./components/Layout";
-import { AuthProvider } from "../context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 export default function App() {
   return (

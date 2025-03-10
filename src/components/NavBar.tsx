@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import {useAuth} from '../../context/AuthContext.tsx'
+import { useAuth } from "../context/AuthContext.tsx";
 const Navbar = () => {
-  const {logout} = useAuth()
+  const { logout } = useAuth();
   return (
     <nav className="bg-blue-500 p-4 w-full z-50 h-[10vh] flex justify-center items-center">
       <ul className="flex w-full space-x-6">

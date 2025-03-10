@@ -1,10 +1,9 @@
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 const Login: React.FC = () => {
-  const {login} = useAuth();
+  const { login } = useAuth();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -34,11 +33,9 @@ const Login: React.FC = () => {
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-700">
           Login
         </h2>
-  
-        {errorMessage && (
-          <p className="text-red-500 text-sm">{errorMessage}</p>
-        )}
-  
+
+        {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
+
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
             <label
@@ -56,7 +53,7 @@ const Login: React.FC = () => {
               placeholder="Enter your email"
             />
           </div>
-  
+
           <div>
             <label
               htmlFor="password"
@@ -73,7 +70,7 @@ const Login: React.FC = () => {
               placeholder="Enter your password"
             />
           </div>
-  
+
           <button
             type="submit"
             className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
@@ -81,7 +78,7 @@ const Login: React.FC = () => {
             Login
           </button>
         </form>
-  
+
         <div className="text-center">
           <p className="text-sm sm:text-base text-gray-600">
             Don't have an account?{" "}
@@ -93,7 +90,6 @@ const Login: React.FC = () => {
       </div>
     </section>
   );
-  
 };
 
 export default Login;

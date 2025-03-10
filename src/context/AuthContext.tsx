@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
-import {AuthContextType} from "../types.ts";
+import { AuthContextType } from "../../types.ts";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 
@@ -29,18 +29,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const clear = () => {
     localStorage.clear();
-  }
+  };
 
   return (
-    <AuthContext.Provider value={{isAuthentificated, login,  logout, clear}}>
-        {children}
+    <AuthContext.Provider value={{ isAuthentificated, login, logout, clear }}>
+      {children}
     </AuthContext.Provider>
-  )
+  );
 };
 
-
 export const useAuth = () => {
-    const context = useContext(AuthContext);
-    if (!context) throw new Error("useAuth must be used in AuthProvider");
-    return context;
-}
+  const context = useContext(AuthContext);
+  if (!context) throw new Error("useAuth must be used in AuthProvider");
+  return context;
+};
